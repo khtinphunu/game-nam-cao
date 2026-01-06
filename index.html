@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <title>Game Nam Cao — STEM THPT</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- audio (put files in audio/ folder) -->
+  <audio id="bgm" src="audio/bg.mp3" loop></audio>
+  <audio id="clickSound" src="audio/click.mp3"></audio>
+
+  <main class="wrap">
+
+    <!-- NAME SCREEN -->
+    <section id="nameScreen" class="card center">
+      <h1>🎓 Game Nam Cao</h1>
+      <p class="muted">Nhập tên để bắt đầu (bắt buộc)</p>
+      <input id="playerNameInput" type="text" placeholder="VD: Nguyễn Văn A" />
+      <div class="row">
+        <button class="btn primary" onclick="confirmName()">Bắt đầu</button>
+      </div>
+      <p class="muted small">Sau khi xác nhận tên, bạn được chọn phe và chơi 10 câu hỏi.</p>
+    </section>
+
+    <!-- MENU: choose phe -->
+    <section id="menu" class="card hidden">
+      <h2>Chọn tuyến truyện</h2>
+      <div class="phe-row">
+        <div class="phe card-small">
+          <img src="images/chipheo.jpg" alt="Chí Phèo" />
+          <h3>Chí Phèo</h3>
+          <p class="muted">Số phận, xã hội và giá trị nhân đạo</p>
+          <button class="btn" onclick="startGame('chipheo')">Chơi Chí Phèo</button>
+        </div>
+
+        <div class="phe card-small">
+          <img src="images/laohac.jpg" alt="Lão Hạc" />
+          <h3>Lão Hạc</h3>
+          <p class="muted">Bài học nhân cách và nghèo đói</p>
+          <button class="btn" onclick="startGame('laohac')">Chơi Lão Hạc</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="btn ghost" onclick="showLeaderboard()">Xem bảng xếp hạng</button>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="card hidden">
+      <div class="game-header">
+        <img id="pheImage" src="" alt="" class="phe-image" />
+        <div>
+          <div id="playerLabel" class="muted">Người chơi: <span id="playerNameLabel"></span></div>
+          <div id="pheLabel" class="muted">Tuyến: <span id="pheNameLabel"></span></div>
+          <div id="progress" class="muted">Câu <span id="currentIdx">1</span> / 10</div>
+        </div>
+      </div>
+
+      <h2 id="question" class="question"></h2>
+
+      <div id="answers" class="answers"></div>
+
+      <div class="bar">
+        <div class="score">Điểm: <span id="score">0</span></div>
+        <div class="controls">
+          <button class="btn ghost" onclick="showLeaderboard()">Bảng xếp hạng</button>
+          <button class="btn ghost" onclick="location.reload()">Thoát / Làm lại</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="card hidden">
+      <h2>🏆 Bảng xếp hạng lớp (Top 10)</h2>
+      <div id="leaderList" class="leader-list"></div>
+      <div class="row">
+        <button class="btn primary" onclick="location.reload()">Quay về menu</button>
+        <button class="btn danger" onclick="promptReset()">Reset (GV)</button>
+      </div>
+      <p class="muted small">Lưu trên trình duyệt (localStorage). GV code: 1412</p>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
