@@ -6,6 +6,25 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="stylesheet" href="style.css" />
 </head>
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<script>
+const firebaseConfig = {
+  apiKey: "DÁN_API_KEY_CỦA_BẠN",
+  authDomain: "DÁN_AUTH_DOMAIN",
+  databaseURL: "DÁN_DATABASE_URL",
+  projectId: "DÁN_PROJECT_ID",
+  storageBucket: "DÁN_STORAGE",
+  messagingSenderId: "DÁN_SENDER_ID",
+  appId: "DÁN_APP_ID"
+};
+
+firebase.initializeApp(firebaseConfig);
+const db = firebase.database();
+</script>
+
 <body>
 
   <!-- audio (put files in audio/ folder) -->
